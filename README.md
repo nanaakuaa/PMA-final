@@ -1,65 +1,126 @@
-<<<<<<< HEAD
-# PMA
-Password management system 
-=======
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# PMA (m-vault)
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Secure password and secret management application built with Laravel.
 
-## About Laravel
+## Overview
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+PMA (also referenced as m-vault) is a self-hosted password management backend that stores, shares, and audits secrets. The codebase includes models for `Password`, `Folder`, `PasswordShare`, `TwoFactorAuthentication`, `UserSession`, and services such as `EncryptionService`, `PasswordGeneratorService`, and `TwoFactorService`.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Key features
+- Store encrypted passwords and metadata
+- Share passwords with other users via `PasswordShare`
+- Folder organization and access policies
+- Audit logging for important events
+- Two-factor authentication support
+- Push/email notifications for password actions
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Requirements
+- PHP 8.1+ (or the version required by your Laravel release)
+- Composer
+- Node.js 18+ and npm/yarn (for frontend assets via Vite)
+- A supported database (MySQL, PostgreSQL, SQLite)
 
-## Learning Laravel
+## Quick setup
+1. Clone the repository and enter the project folder
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+```bash
+git clone <repo-url> pma
+cd pma
+```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+2. Install PHP dependencies
 
-## Laravel Sponsors
+```bash
+composer install --no-interaction --prefer-dist
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+3. Install frontend dependencies and build assets
 
-### Premium Partners
+```bash
+npm install
+# local dev
+npm run dev
+# or build for production
+npm run build
+```
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+4. Environment
+
+Copy `.env.example` to `.env` and update values (database, mail, app URL, push credentials).
+
+```bash
+cp .env.example .env
+php artisan key:generate
+```
+
+5. Database
+
+Run migrations and seeders (if provided).
+
+```bash
+php artisan migrate --seed
+```
+
+6. Storage and permissions
+
+Create the storage symlink and ensure `storage/` is writable:
+
+```bash
+php artisan storage:link
+```
+
+7. Run the app
+
+```bash
+php artisan serve --host=127.0.0.1 --port=8000
+```
+
+## Configuration notes
+- `APP_URL`: base URL for links and notifications
+- `DB_CONNECTION`, `DB_DATABASE`, etc.: database settings
+- Mail and push notification settings: configure in `.env` (see `config/mail.php` and `config/services.php`)
+- Encryption keys: application key via `php artisan key:generate`; the project may use custom `EncryptionService` for per-record encryption.
+
+## Important artisan commands
+- `php artisan migrate` — run database migrations
+- `php artisan db:seed` — run seeders
+- `php artisan test` or `vendor/bin/phpunit` — run tests
+- `php artisan tinker` — interact with the application
+
+## Testing
+
+Run the test suite with:
+
+```bash
+php artisan test
+# or
+vendor/bin/phpunit
+```
+
+## Development pointers
+- Models live in `app/Models`
+- Policies live in `app/Policies` (authorization rules for folders, passwords, audit logs)
+- Domain services live in `app/Services` (`EncryptionService`, `PasswordGeneratorService`, `TwoFactorService`)
+- Events & listeners for password actions in `app/Events` and `app/Listeners`
+- Notifications in `app/Notifications`
+
+## Deployment
+- Use a process manager (Supervisor, systemd) for queue workers and scheduled tasks
+- Configure a webserver (Nginx/Apache) to serve `public/` and point `APP_ENV=production`
+- Run `npm run build` to compile production assets and `php artisan migrate --force` for migrations
 
 ## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+- Fork the repo, create a feature branch, and open a pull request
+- Follow PSR coding standards and run tests locally before PR
 
 ## License
+This project is licensed under the MIT License unless otherwise stated.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-# m-vault
->>>>>>> 800c996 (Initial commit)
+---
+
+If you'd like, I can also:
+- Add/clean up badges and a project description
+- Add setup scripts (Makefile / composer scripts)
+- Add a CONTRIBUTING.md
+
+Tell me which of those you'd like next.
