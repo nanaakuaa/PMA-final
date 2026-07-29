@@ -21,6 +21,7 @@ class FolderController extends Controller
         $perPage = $request->get('per_page', 25);
 
         $folders = Folder::query()
+            ->where('user_id', $request->user()->id)
             ->withCount('passwords')
             ->latest()
             ->paginate($perPage);

@@ -56,16 +56,17 @@ const formatDate = (date) => {
 
 <style scoped>
 .password-card {
-    background: white;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    padding: 1.25rem;
+    background: rgba(15, 23, 42, 0.94);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 1.5rem;
+    padding: 1.5rem;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: all 0.3s ease;
+    box-shadow: 0 18px 50px rgba(0,0,0,0.18);
 }
 
 .password-card:hover {
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 24px 70px rgba(0,0,0,0.28);
     transform: translateY(-2px);
 }
 
@@ -79,7 +80,7 @@ const formatDate = (date) => {
 .card-header h3 {
     margin: 0;
     font-size: 1.125rem;
-    color: #2c3e50;
+    color: #f8fafc;
 }
 
 .card-actions {
@@ -88,17 +89,22 @@ const formatDate = (date) => {
 }
 
 .icon-btn {
-    background: none;
-    border: none;
+    background: linear-gradient(135deg, rgba(251, 191, 36, 0.22), rgba(249, 115, 22, 0.22));
+    border: 1px solid rgba(251, 191, 36, 0.38);
+    color: #fef3c7;
+    border-radius: 999px;
     cursor: pointer;
     font-size: 1rem;
-    padding: 0.25rem;
-    opacity: 0.6;
-    transition: opacity 0.2s;
+    padding: 0.4rem 0.55rem;
+    opacity: 1;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    box-shadow: 0 6px 16px rgba(249, 115, 22, 0.12);
 }
 
 .icon-btn:hover {
-    opacity: 1;
+    transform: translateY(-1px);
+    background: linear-gradient(135deg, rgba(251, 191, 36, 0.35), rgba(249, 115, 22, 0.3));
+    box-shadow: 0 8px 20px rgba(249, 115, 22, 0.2);
 }
 
 .card-body {
@@ -112,16 +118,16 @@ const formatDate = (date) => {
 }
 
 .label {
-    color: #666;
+    color: #94a3b8;
     margin-right: 0.5rem;
 }
 
 .value {
-    color: #2c3e50;
+    color: #e2e8f0;
 }
 
 .link {
-    color: #3498db;
+    color: #60a5fa;
     text-decoration: none;
 }
 
@@ -132,15 +138,16 @@ const formatDate = (date) => {
 .folder-badge {
     display: inline-block;
     padding: 0.25rem 0.75rem;
-    background: #f0f0f0;
-    border-radius: 4px;
+    background: rgba(249, 115, 22, 0.18);
+    border-radius: 999px;
     font-size: 0.75rem;
     margin-top: 0.5rem;
+    color: #fbbf24;
 }
 
 .card-footer {
     padding-top: 0.75rem;
-    border-top: 1px solid #f0f0f0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
@@ -148,12 +155,12 @@ const formatDate = (date) => {
 
 .date {
     font-size: 0.75rem;
-    color: #999;
+    color: #94a3b8;
 }
 
 .user-info {
     font-size: 0.75rem;
-    color: #f97316;
+    color: #fbbf24;
     font-weight: 500;
 }
 </style>

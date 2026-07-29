@@ -13,7 +13,7 @@ class FolderPolicy
      */
     public function view(User $user, Folder $folder): bool
     {
-        return true;
+        return $folder->user_id === $user->id;
     }
 
     /**
@@ -26,19 +26,17 @@ class FolderPolicy
 
     /**
      * Determine if the user can update the folder.
-     * All employees can update company folders.
      */
     public function update(User $user, Folder $folder): bool
     {
-        return true;
+        return $folder->user_id === $user->id;
     }
 
     /**
      * Determine if the user can delete the folder.
-     * All employees can delete company folders.
      */
     public function delete(User $user, Folder $folder): bool
     {
-        return true;
+        return $folder->user_id === $user->id;
     }
 }

@@ -10,14 +10,10 @@
                     <h3>Total Folders</h3>
                     <p class="stat-number">{{ stats.total_folders }}</p>
                 </div>
-                <div class="stat-card">
-                    <h3>Team Members</h3>
-                    <p class="stat-number">{{ stats.total_employees }}</p>
-                </div>
             </div>
 
             <div class="card mt-4">
-                <h2 class="mb-3">Recent Company Passwords</h2>
+                <h2 class="mb-3">Recent Personal Passwords</h2>
                 <div v-if="recentPasswords.length > 0">
                     <div
                         v-for="password in recentPasswords"
@@ -55,7 +51,6 @@ defineProps({
 <style scoped>
 .dashboard {
     max-width: 1200px;
-
 }
 
 .stats-grid {
@@ -66,51 +61,62 @@ defineProps({
 }
 
 .stat-card {
-    background: white;
+    background: rgba(15, 23, 42, 0.88);
     padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 22px 50px rgba(0, 0, 0, 0.18);
 }
 
 .stat-card h3 {
-    margin: 0 0 0.5rem 0;
-    color: #666;
-    font-size: 0.875rem;
+    margin: 0 0 0.75rem 0;
+    color: #94a3b8;
+    font-size: 0.9rem;
     text-transform: uppercase;
+    letter-spacing: 0.06em;
 }
 
 .stat-number {
     font-size: 2.5rem;
-    font-weight: bold;
-    color: #2b3743;
+    font-weight: 700;
+    color: #fde047;
     margin: 0;
+}
+
+.card {
+    margin-top: 1.5rem;
 }
 
 .password-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem;
-    background: #fff7ed;
-    margin-bottom: 0.5rem;
-    border-radius: 4px;
-    border: 1px solid #ffe0b3;
+    padding: 1.25rem;
+    background: rgba(15, 23, 42, 0.72);
+    margin-bottom: 0.75rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .password-info {
     flex: 1;
 }
 
+.password-info strong {
+    color: #f8fafc;
+    font-size: 1rem;
+}
+
 .text-muted {
-    color: #666;
-    font-size: 0.875rem;
-    margin: 0.25rem 0 0 0;
+    color: #94a3b8;
+    font-size: 0.9rem;
+    margin: 0.35rem 0 0 0;
 }
 
 .creator-info {
-    color: #f97316;
-    font-size: 0.75rem;
+    color: #cbd5e1;
+    font-size: 0.78rem;
     font-weight: 600;
-    margin: 0.25rem 0 0 0;
+    margin: 0.35rem 0 0 0;
 }
 </style>

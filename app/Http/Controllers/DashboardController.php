@@ -15,16 +15,17 @@ class DashboardController extends Controller
         $user = $request->user();
 
         $stats = [
-            'total_passwords' => Password::count(),
-            'total_folders' => Folder::count(),
-            'total_employees' => \App\Models\User::count(),
+            'total_passwords' => Password::where('user_id', $user->id)->count(),
+            'total_folders' => Folder::where('user_id', $user->id)->count(),
             'recent_activities' => AuditLog::with('user')
+                ->where('user_id', $user->id)
                 ->latest()
                 ->take(10)
                 ->get(),
         ];
 
         $recentPasswords = Password::with(['folder', 'creator', 'updater'])
+            ->where('user_id', $user->id)
             ->latest()
             ->take(10)
             ->get();

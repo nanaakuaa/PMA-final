@@ -45,8 +45,8 @@ const searchQuery = ref('');
 
 <style scoped>
 .password-list {
-    background: white;
-    border-radius: 8px;
+    background: rgba(15, 23, 42, 0.9);
+    border-radius: 1.5rem;
     padding: 1.5rem;
 }
 
@@ -58,24 +58,30 @@ const searchQuery = ref('');
 
 .search-input {
     flex: 1;
-    padding: 0.75rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    padding: 0.9rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 999px;
     font-size: 1rem;
+    background: rgba(15, 23, 42, 0.7);
+    color: #f8fafc;
+}
+
+.search-input::placeholder {
+    color: rgba(248, 250, 252, 0.6);
 }
 
 .search-input:focus {
     outline: none;
-    border-color: #ff7a00;
-    box-shadow: 0 0 0 3px rgba(255, 122, 0, 0.1);
+    border-color: rgba(249, 115, 22, 0.8);
+    box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.14);
 }
 
 .btn {
     padding: 0.75rem 1.5rem;
-    background: #ff7a00;
-    color: white;
+    background: linear-gradient(135deg, #fbbf24, #f97316);
+    color: #08090a;
     border: none;
-    border-radius: 4px;
+    border-radius: 999px;
     cursor: pointer;
     font-size: 1rem;
     font-weight: 600;
@@ -83,6 +89,6 @@ const searchQuery = ref('');
 }
 
 .btn:hover {
-    background: #f97316;
+    background: linear-gradient(135deg, #f59e0b, #ea580c);
 }
 </style>

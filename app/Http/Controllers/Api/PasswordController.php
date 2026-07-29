@@ -29,14 +29,7 @@ class PasswordController extends Controller
 
         $passwords = Password::query()
             ->with(['folder', 'creator', 'updater', 'department'])
-            ->where(function($q) use ($user) {
-                // Show company-wide passwords OR passwords in user's department
-                $q->where('is_company_wide', true)
-                  ->orWhere(function($subQ) use ($user) {
-                      $subQ->where('is_company_wide', false)
-                           ->where('department_id', $user->department_id);
-                  });
-            })
+            ->where('user_id', $user->id)
             ->when($request->folder_id, fn($q) => $q->where('folder_id', $request->folder_id))
             ->when($request->search, fn($q) => $q->where('title', 'like', "%{$request->search}%"))
             ->latest()

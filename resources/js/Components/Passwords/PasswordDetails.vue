@@ -138,8 +138,8 @@ onMounted(() => {
 
 <style scoped>
 .password-details {
-    background: white;
-    border-radius: 8px;
+    background: rgba(15, 23, 42, 0.94);
+    border-radius: 1.5rem;
     padding: 2rem;
     max-width: 600px;
 }
@@ -147,33 +147,41 @@ onMounted(() => {
 .details-header {
     display: flex;
     justify-content: space-between;
-    align-items: start;
+    align-items: flex-start;
     margin-bottom: 2rem;
     padding-bottom: 1rem;
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .details-header h2 {
     margin: 0;
-    color: #2c3e50;
+    color: #f8fafc;
 }
 
 .header-actions {
     display: flex;
-    gap: 0.5rem;
+    gap: 0.75rem;
 }
 
 .btn-close {
-    background: none;
-    border: none;
-    font-size: 1.5rem;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #f8fafc;
+    border-radius: 999px;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
     cursor: pointer;
-    opacity: 0.6;
-    transition: opacity 0.2s;
+    opacity: 0.8;
+    transition: opacity 0.2s, transform 0.2s;
 }
 
 .btn-close:hover {
     opacity: 1;
+    transform: translateY(-1px);
 }
 
 .details-body {
@@ -189,7 +197,7 @@ onMounted(() => {
 
 .detail-item label {
     font-weight: 600;
-    color: #666;
+    color: #94a3b8;
     font-size: 0.875rem;
     margin-bottom: 0.5rem;
 }
@@ -198,11 +206,13 @@ onMounted(() => {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    flex-wrap: wrap;
 }
 
 .password-value {
     font-family: monospace;
     font-size: 1.125rem;
+    color: #f8fafc;
 }
 
 .timestamp-info {
@@ -214,29 +224,31 @@ onMounted(() => {
 .user-badge {
     display: inline-block;
     padding: 0.25rem 0.75rem;
-    background: #fff7ed;
-    color: #c2410c;
-    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.08);
+    color: #facc15;
+    border-radius: 999px;
     font-size: 0.75rem;
     font-weight: 600;
-    border: 1px solid #fdba74;
+    border: 1px solid rgba(250, 204, 21, 0.2);
 }
 
 .copy-btn {
-    background: #f0f0f0;
-    border: none;
-    padding: 0.5rem;
-    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #f8fafc;
+    border-radius: 999px;
+    padding: 0.5rem 0.75rem;
     cursor: pointer;
-    transition: background 0.2s;
+    transition: background 0.2s, transform 0.2s;
 }
 
 .copy-btn:hover {
-    background: #e0e0e0;
+    background: rgba(255, 255, 255, 0.12);
+    transform: translateY(-1px);
 }
 
 .url-link {
-    color: #3498db;
+    color: #60a5fa;
     text-decoration: none;
 }
 
@@ -245,36 +257,39 @@ onMounted(() => {
 }
 
 .notes-content {
-    background: #f8f9fa;
+    background: rgba(255, 255, 255, 0.04);
     padding: 1rem;
-    border-radius: 4px;
+    border-radius: 1rem;
     white-space: pre-wrap;
+    color: #e2e8f0;
 }
 
 .folder-badge {
     display: inline-block;
     padding: 0.5rem 1rem;
-    background: #f0f0f0;
-    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 999px;
+    color: #f8fafc;
 }
 
 .details-footer {
     margin-top: 2rem;
     padding-top: 1rem;
-    border-top: 1px solid #e0e0e0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .btn-danger {
-    background: #e74c3c;
+    background: #ef4444;
     color: white;
     border: none;
     padding: 0.75rem 1.5rem;
-    border-radius: 4px;
+    border-radius: 999px;
     cursor: pointer;
-    transition: background 0.2s;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .btn-danger:hover {
-    background: #c0392b;
+    transform: translateY(-1px);
+    box-shadow: 0 14px 32px rgba(239, 68, 68, 0.18);
 }
 </style>

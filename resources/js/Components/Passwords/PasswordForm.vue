@@ -85,23 +85,6 @@
                 ></textarea>
             </div>
 
-            <div class="form-group">
-                <label>
-                    <input v-model="form.is_company_wide" type="checkbox" />
-                    Visible to all company users
-                </label>
-            </div>
-
-            <div v-if="!form.is_company_wide" class="form-group">
-                <label for="department_id">Restrict to Department</label>
-                <select id="department_id" v-model="form.department_id">
-                    <option :value="null">Select Department</option>
-                    <option v-for="dept in departments" :key="dept.id" :value="dept.id">
-                        {{ dept.name }}
-                    </option>
-                </select>
-            </div>
-
             <div class="form-actions">
                 <button type="button" @click="$emit('cancel')" class="btn btn-secondary">
                     Cancel
@@ -184,8 +167,8 @@ defineExpose({
 
 <style scoped>
 .password-form {
-    background: white;
-    border-radius: 8px;
+    background: rgba(15, 23, 42, 0.94);
+    border-radius: 1.5rem;
     padding: 2rem;
     max-width: 600px;
     max-height: 90vh;
@@ -194,7 +177,7 @@ defineExpose({
 
 .password-form h2 {
     margin-bottom: 1.5rem;
-    color: #2c3e50;
+    color: #f8fafc;
 }
 
 .form-group {
@@ -205,7 +188,7 @@ defineExpose({
     display: block;
     margin-bottom: 0.5rem;
     font-weight: 500;
-    color: #333;
+    color: #94a3b8;
 }
 
 .form-group label input[type="checkbox"] {
@@ -221,18 +204,20 @@ defineExpose({
 .form-group select,
 .form-group textarea {
     width: 100%;
-    padding: 0.75rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    padding: 0.9rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 1rem;
     font-size: 1rem;
+    background: rgba(15, 23, 42, 0.75);
+    color: #f8fafc;
 }
 
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: #ff7a00;
-    box-shadow: 0 0 0 3px rgba(255, 122, 0, 0.1);
+    border-color: rgba(249, 115, 22, 0.8);
+    box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.14);
 }
 
 .password-input-group {
@@ -244,33 +229,29 @@ defineExpose({
     flex: 1;
 }
 
-.toggle-password {
-    padding: 0.75rem;
-    border: 1px solid #ddd;
-    background: white;
-    border-radius: 4px;
+.toggle-password,
+.btn-generate {
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.06);
+    color: #f8fafc;
+    border-radius: 999px;
     cursor: pointer;
-    transition: background 0.2s;
+    transition: background 0.2s, transform 0.2s;
 }
 
-.toggle-password:hover {
-    background: #f5f5f5;
+.toggle-password {
+    padding: 0.75rem 1rem;
 }
 
 .btn-generate {
     padding: 0.75rem 1rem;
-    border: 1px solid #ff7a00;
-    background: white;
-    color: #ff7a00;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: all 0.2s;
     font-weight: 500;
 }
 
+.toggle-password:hover,
 .btn-generate:hover {
-    background: #ff7a00;
-    color: white;
+    background: rgba(255, 255, 255, 0.12);
+    transform: translateY(-1px);
 }
 
 .form-actions {
@@ -283,7 +264,7 @@ defineExpose({
 .btn {
     padding: 0.75rem 1.5rem;
     border: none;
-    border-radius: 4px;
+    border-radius: 999px;
     cursor: pointer;
     font-size: 1rem;
     font-weight: 600;
@@ -291,21 +272,22 @@ defineExpose({
 }
 
 .btn:not(.btn-secondary) {
-    background: #ff7a00;
-    color: white;
+    background: linear-gradient(135deg, #fbbf24, #f97316);
+    color: #08090a;
 }
 
 .btn:not(.btn-secondary):hover:not(:disabled) {
-    background: #f97316;
+    background: linear-gradient(135deg, #f59e0b, #ea580c);
 }
 
 .btn.btn-secondary {
-    background: #e0e0e0;
-    color: #333;
+    background: rgba(255, 255, 255, 0.08);
+    color: #f8fafc;
+    border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .btn.btn-secondary:hover {
-    background: #d0d0d0;
+    background: rgba(255, 255, 255, 0.14);
 }
 
 .btn:disabled {
@@ -314,7 +296,7 @@ defineExpose({
 }
 
 .error {
-    color: #dc2626;
+    color: #fca5a5;
     font-size: 0.875rem;
     display: block;
     margin-top: 0.25rem;

@@ -13,7 +13,7 @@
                     <th>Description</th>
                     <th>Passwords</th>
                     <th>Created</th>
-                    <th>Created By</th>
+
                     <th>Last Updated</th>
                     <th>Actions</th>
                 </tr>
@@ -29,7 +29,7 @@
                         <span class="count-badge">{{ folder.passwords_count }}</span>
                     </td>
                     <td class="date-cell">{{ formatDate(folder.created_at) }}</td>
-                    <td class="user-cell">{{ folder.creator?.name || '—' }}</td>
+                 
                     <td class="date-cell">{{ formatDate(folder.updated_at) }}</td>
                     <td class="actions-cell" @click.stop>
                         <div class="dropdown">
@@ -82,22 +82,24 @@ const formatDate = (date) => {
 
 <style scoped>
 .folder-table-container {
-    background: white;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    background: rgba(15, 23, 42, 0.92);
+    border-radius: 1.5rem;
+    overflow-x: auto;
+    overflow-y: visible;
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.2);
+position: relative;
 }
 
 .loading {
     padding: 2rem;
     text-align: center;
-    color: #666;
+    color: #cbd5e1;
 }
 
 .empty-state {
     padding: 2rem;
     text-align: center;
-    color: #999;
+    color: #94a3b8;
 }
 
 .folder-table {
@@ -107,25 +109,25 @@ const formatDate = (date) => {
 }
 
 .folder-table thead {
-    background: #f5f5f5;
-    border-bottom: 2px solid #ddd;
+    background: rgba(15, 23, 42, 0.96);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .folder-table th {
     padding: 1rem;
     text-align: left;
     font-weight: 600;
-    color: #333;
+    color: #e2e8f0;
 }
 
 .folder-table tbody tr {
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     cursor: pointer;
     transition: background-color 0.2s;
 }
 
 .folder-table tbody tr:hover {
-    background-color: #fff7ed;
+    background-color: rgba(255, 255, 255, 0.04);
 }
 
 .folder-table tbody tr:last-child {
@@ -134,12 +136,12 @@ const formatDate = (date) => {
 
 .folder-table td {
     padding: 1rem;
-    color: #555;
+    color: #cbd5e1;
 }
 
 .name-cell {
     font-weight: 600;
-    color: #2c3e50;
+    color: #f8fafc;
 }
 
 .folder-icon {
@@ -147,7 +149,7 @@ const formatDate = (date) => {
 }
 
 .description-cell {
-    color: #999;
+    color: #94a3b8;
     font-size: 0.9rem;
     max-width: 250px;
     overflow: hidden;
@@ -161,10 +163,10 @@ const formatDate = (date) => {
 
 .count-badge {
     display: inline-block;
-    background: #ff7a00;
-    color: white;
+    background: rgba(249, 115, 22, 0.18);
+    color: #fbbf24;
     padding: 0.25rem 0.75rem;
-    border-radius: 4px;
+    border-radius: 999px;
     font-size: 0.85rem;
     font-weight: 600;
 }
@@ -172,7 +174,7 @@ const formatDate = (date) => {
 .date-cell,
 .user-cell {
     font-size: 0.9rem;
-    color: #999;
+    color: #94a3b8;
 }
 
 .actions-cell {
@@ -185,54 +187,57 @@ const formatDate = (date) => {
 }
 
 .dropdown-btn {
-    background: none;
-    border: none;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #f8fafc;
+    border-radius: 999px;
     cursor: pointer;
     font-size: 1.25rem;
     padding: 0.25rem 0.5rem;
-    opacity: 0.6;
-    transition: opacity 0.2s;
+    opacity: 0.85;
+    transition: opacity 0.2s, transform 0.2s;
 }
 
 .dropdown-btn:hover {
     opacity: 1;
+    transform: translateY(-1px);
 }
 
 .dropdown-menu {
     position: absolute;
-    top: 100%;
+    top:calc(100% + 6px);
     right: 0;
-    background: white;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    z-index: 1000;
-    min-width: 120px;
+    background: rgba(15, 23, 42, 0.98);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.25);
+    z-index: 99999;
+    min-width: 180px;
 }
 
 .dropdown-item {
     display: block;
     width: 100%;
-    padding: 0.75rem 1rem;
+    padding: 0.85rem 1rem;
     border: none;
-    background: none;
+    background: transparent;
     text-align: left;
     cursor: pointer;
     font-size: 0.95rem;
-    color: #333;
+    color: #e2e8f0;
     transition: background-color 0.2s;
 }
 
 .dropdown-item:first-child {
-    border-radius: 3px 3px 0 0;
+    border-radius: 1rem 1rem 0 0;
 }
 
 .dropdown-item:last-child {
-    border-radius: 0 0 3px 3px;
+    border-radius: 0 0 1rem 1rem;
 }
 
 .dropdown-item:hover:not(:disabled) {
-    background-color: #f5f5f5;
+    background-color: rgba(255, 255, 255, 0.06);
 }
 
 .dropdown-item:disabled {
@@ -241,10 +246,10 @@ const formatDate = (date) => {
 }
 
 .dropdown-item.danger {
-    color: #dc2626;
+    color: #fca5a5;
 }
 
 .dropdown-item.danger:hover:not(:disabled) {
-    background-color: #fee2e2;
+    background-color: rgba(248, 113, 113, 0.15);
 }
 </style>

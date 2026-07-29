@@ -36,8 +36,8 @@ defineEmits(['create', 'select', 'edit', 'delete']);
 
 <style scoped>
 .folder-list {
-    background: white;
-    border-radius: 8px;
+    background: rgba(15, 23, 42, 0.9);
+    border-radius: 1.5rem;
     padding: 1.5rem;
 }
 
@@ -50,15 +50,15 @@ defineEmits(['create', 'select', 'edit', 'delete']);
 
 .list-header h2 {
     margin: 0;
-    color: #2c3e50;
+    color: #f8fafc;
 }
 
 .btn {
     padding: 0.75rem 1.5rem;
-    background: #ff7a00;
-    color: white;
+    background: linear-gradient(135deg, #fbbf24, #f97316);
+    color: #08090a;
     border: none;
-    border-radius: 4px;
+    border-radius: 999px;
     cursor: pointer;
     font-size: 1rem;
     font-weight: 600;
@@ -66,6 +66,6 @@ defineEmits(['create', 'select', 'edit', 'delete']);
 }
 
 .btn:hover {
-    background: #f97316;
+    background: linear-gradient(135deg, #f59e0b, #ea580c);
 }
 </style>

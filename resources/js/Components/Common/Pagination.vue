@@ -108,15 +108,15 @@ const changePerPage = (e) => {
     flex-direction: column;
     gap: 1.5rem;
     padding: 1.5rem;
-    background: white;
-    border-radius: 8px;
-    border-top: 1px solid #e0e0e0;
+    background: rgba(15, 23, 42, 0.9);
+    border-radius: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
     margin-top: 1.5rem;
 }
 
 .pagination-info {
     font-size: 0.9rem;
-    color: #666;
+    color: #cbd5e1;
     text-align: center;
 }
 
@@ -128,57 +128,42 @@ const changePerPage = (e) => {
     flex-wrap: wrap;
 }
 
-.pagination-btn {
-    padding: 0.5rem 1rem;
-    border: 1px solid #ddd;
-    background: white;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    transition: all 0.2s;
-}
-
-.pagination-btn:hover:not(:disabled) {
-    background: #ff7a00;
-    border-color: #ff7a00;
-    color: white;
-}
-
-.pagination-btn:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-}
-
-.pagination-pages {
-    display: flex;
-    gap: 0.5rem;
-}
-
+.pagination-btn,
 .page-btn {
-    padding: 0.5rem 0.75rem;
-    border: 1px solid #ddd;
-    background: white;
-    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: rgba(255, 255, 255, 0.06);
+    color: #e2e8f0;
+    border-radius: 999px;
     cursor: pointer;
     font-size: 0.9rem;
     transition: all 0.2s;
     min-width: 40px;
 }
 
+.pagination-btn:hover:not(:disabled),
 .page-btn:hover:not(.active) {
-    background: #f5f5f5;
-    border-color: #ff7a00;
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(249, 115, 22, 0.4);
+    color: #fbbf24;
+}
+
+.pagination-btn:disabled,
+.page-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
 }
 
 .page-btn.active {
-    background: #ff7a00;
-    color: white;
-    border-color: #ff7a00;
+    background: linear-gradient(135deg, #fbbf24, #f97316);
+    color: #08090a;
+    border-color: transparent;
     font-weight: 600;
 }
 
-.page-btn:disabled {
-    cursor: default;
+.pagination-pages {
+    display: flex;
+    gap: 0.5rem;
 }
 
 .pagination-per-page {
@@ -187,19 +172,22 @@ const changePerPage = (e) => {
     justify-content: center;
     gap: 0.5rem;
     font-size: 0.9rem;
+    color: #cbd5e1;
 }
 
 .pagination-per-page select {
     padding: 0.5rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 999px;
+    background: rgba(15, 23, 42, 0.7);
+    color: #e2e8f0;
     cursor: pointer;
     font-size: 0.9rem;
 }
 
 .pagination-per-page select:focus {
     outline: none;
-    border-color: #ff7a00;
-    box-shadow: 0 0 0 3px rgba(255, 122, 0, 0.1);
+    border-color: rgba(249, 115, 22, 0.8);
+    box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.14);
 }
 </style>

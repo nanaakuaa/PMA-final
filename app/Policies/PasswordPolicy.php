@@ -9,11 +9,11 @@ class PasswordPolicy
 {
     /**
      * Determine if the user can view the password.
-     * All employees can view all company passwords.
+     * Users can only view passwords they own.
      */
     public function view(User $user, Password $password): bool
     {
-        return true;
+        return $password->user_id === $user->id;
     }
 
     /**
@@ -26,19 +26,19 @@ class PasswordPolicy
 
     /**
      * Determine if the user can update the password.
-     * All employees can update company passwords.
+     * Users can only update passwords they own.
      */
     public function update(User $user, Password $password): bool
     {
-        return true;
+        return $password->user_id === $user->id;
     }
 
     /**
      * Determine if the user can delete the password.
-     * All employees can delete company passwords.
+     * Users can only delete passwords they own.
      */
     public function delete(User $user, Password $password): bool
     {
-        return true;
+        return $password->user_id === $user->id;
     }
 }

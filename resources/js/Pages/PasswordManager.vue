@@ -54,7 +54,6 @@
                     ref="passwordFormRef"
                     :password="selectedPassword"
                     :folders="folders"
-                    :departments="departments"
                     :errors="formErrors"
                     :submitting="submitting"
                     @submit="savePassword"
@@ -271,36 +270,36 @@ onMounted(() => {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1.5rem;
-    padding: 1rem;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    padding: 1.25rem 1.5rem;
+    background: rgba(15, 23, 42, 0.88);
+    border-radius: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .view-toggle {
     display: flex;
-    gap: 0.5rem;
+    gap: 0.75rem;
 }
 
 .toggle-btn {
-    padding: 0.5rem 1rem;
-    border: 1px solid #ddd;
-    background: white;
-    border-radius: 4px;
+    padding: 0.75rem 1.15rem;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.05);
+    color: #e2e8f0;
+    border-radius: 999px;
     cursor: pointer;
-    font-size: 0.9rem;
-    transition: all 0.2s;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
 }
 
 .toggle-btn:hover {
-    background: #f5f5f5;
-    border-color: #ff7a00;
+    background: rgba(255, 255, 255, 0.12);
 }
 
 .toggle-btn.active {
-    background: #ff7a00;
-    color: white;
-    border-color: #ff7a00;
+    background: rgba(249, 115, 22, 0.18);
+    color: #fbbf24;
+    border-color: rgba(249, 115, 22, 0.4);
 }
 
 .modal {

@@ -79,8 +79,8 @@ const handleSubmit = () => {
 
 <style scoped>
 .folder-form {
-    background: white;
-    border-radius: 8px;
+    background: rgba(15, 23, 42, 0.94);
+    border-radius: 1.5rem;
     padding: 2rem;
     max-width: 500px;
     max-height: 90vh;
@@ -89,7 +89,7 @@ const handleSubmit = () => {
 
 .folder-form h2 {
     margin-bottom: 1.5rem;
-    color: #2c3e50;
+    color: #f8fafc;
 }
 
 .form-group {
@@ -100,23 +100,25 @@ const handleSubmit = () => {
     display: block;
     margin-bottom: 0.5rem;
     font-weight: 500;
-    color: #333;
+    color: #94a3b8;
 }
 
 .form-group input,
 .form-group textarea {
     width: 100%;
-    padding: 0.75rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    padding: 0.9rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 1rem;
     font-size: 1rem;
+    background: rgba(15, 23, 42, 0.75);
+    color: #f8fafc;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: #ff7a00;
-    box-shadow: 0 0 0 3px rgba(255, 122, 0, 0.1);
+    border-color: rgba(249, 115, 22, 0.8);
+    box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.14);
 }
 
 .form-actions {
@@ -129,7 +131,7 @@ const handleSubmit = () => {
 .btn {
     padding: 0.75rem 1.5rem;
     border: none;
-    border-radius: 4px;
+    border-radius: 999px;
     cursor: pointer;
     font-size: 1rem;
     font-weight: 600;
@@ -137,21 +139,22 @@ const handleSubmit = () => {
 }
 
 .btn:not(.btn-secondary) {
-    background: #ff7a00;
-    color: white;
+    background: linear-gradient(135deg, #fbbf24, #f97316);
+    color: #08090a;
 }
 
 .btn:not(.btn-secondary):hover:not(:disabled) {
-    background: #f97316;
+    background: linear-gradient(135deg, #f59e0b, #ea580c);
 }
 
 .btn.btn-secondary {
-    background: #e0e0e0;
-    color: #333;
+    background: rgba(255, 255, 255, 0.08);
+    color: #f8fafc;
+    border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .btn.btn-secondary:hover {
-    background: #d0d0d0;
+    background: rgba(255, 255, 255, 0.14);
 }
 
 .btn:disabled {
@@ -160,7 +163,7 @@ const handleSubmit = () => {
 }
 
 .error {
-    color: #dc2626;
+    color: #fca5a5;
     font-size: 0.875rem;
     display: block;
     margin-top: 0.25rem;

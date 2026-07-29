@@ -26,6 +26,7 @@ defineProps({
 .app-layout {
     display: flex;
     min-height: 100vh;
+    background: linear-gradient(180deg, rgba(6, 10, 20, 0.95), rgba(10, 14, 28, 0.98));
 }
 
 .main-content {
@@ -33,11 +34,16 @@ defineProps({
     flex: 1;
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
 }
 
 .content {
     flex: 1;
-    padding: 2rem;
-    background: #fff7ed;
+    padding: 2.5rem;
+    background: rgba(15, 23, 42, 0.92);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 30px 90px rgba(0, 0, 0, 0.28);
+    backdrop-filter: blur(18px);
+    border-radius: 2rem;
 }
 </style>

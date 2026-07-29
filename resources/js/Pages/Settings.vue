@@ -246,21 +246,39 @@ const confirmDeleteAccount = () => {
 
 <style scoped>
 .settings-page {
-    max-width: 800px;
+    max-width: 900px;
 }
 
 .settings-section {
     margin-bottom: 2rem;
 }
 
+.settings-section.card {
+    background: rgba(15, 23, 42, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 1.75rem;
+    padding: 1.75rem;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.2);
+}
+
 .settings-section h2 {
     margin-bottom: 1.5rem;
-    color: #2c3e50;
+    color: #f8fafc;
+}
+
+.form-group label {
+    color: #cbd5e1;
+}
+
+.form-group input,
+.form-group select {
+    background: rgba(15, 23, 42, 0.72);
+    color: #f8fafc;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .security-options {
-    display: flex;
-    flex-direction: column;
+    display: grid;
     gap: 1.5rem;
 }
 
@@ -268,51 +286,51 @@ const confirmDeleteAccount = () => {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem;
-    background: #f8f9fa;
-    border-radius: 4px;
+    gap: 1rem;
+    padding: 1rem 1.2rem;
+    background: rgba(15, 23, 42, 0.82);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 1.25rem;
 }
 
-.security-item h3 {
-    margin: 0 0 0.25rem 0;
-    font-size: 1rem;
-}
-
+.security-item h3,
 .security-item p {
-    margin: 0;
-    font-size: 0.875rem;
-    color: #666;
+    color: #e2e8f0;
 }
 
 .export-formats {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
     margin-top: 0.75rem;
 }
 
-.export-formats label {
-    font-size: 0.875rem;
-    font-weight: 600;
+.export-formats select {
+    width: auto;
+    min-width: 160px;
+    background: rgba(15, 23, 42, 0.72);
+    color: #f8fafc;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.export-formats select {
-    padding: 0.5rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 0.875rem;
-    background: white;
-    cursor: pointer;
+.toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: #e2e8f0;
+}
+
+.toggle input {
+    accent-color: #f59e0b;
 }
 
 .danger-zone {
-    border: 2px solid #e74c3c;
+    background: rgba(220, 38, 38, 0.12);
+    border: 1px solid rgba(220, 38, 38, 0.25);
 }
 
 .danger-actions {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 1rem;
 }
 
 .danger-actions h3 {
@@ -323,20 +341,21 @@ const confirmDeleteAccount = () => {
 .danger-actions p {
     margin: 0;
     font-size: 0.875rem;
-    color: #666;
+    color: #cbd5e1;
 }
 
 .btn-danger {
-    background: #e74c3c;
-    color: white;
+    background: #ef4444;
+    color: #fff;
     border: none;
-    padding: 0.75rem 1.5rem;
-    border-radius: 4px;
+    padding: 0.95rem 1.5rem;
+    border-radius: 999px;
     cursor: pointer;
-    transition: background 0.2s;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .btn-danger:hover {
-    background: #c0392b;
+    transform: translateY(-1px);
+    box-shadow: 0 14px 32px rgba(239, 68, 68, 0.18);
 }
 </style>

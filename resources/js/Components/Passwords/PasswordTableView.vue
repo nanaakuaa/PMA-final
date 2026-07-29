@@ -38,7 +38,9 @@
                     <td class="user-cell">{{ password.updater?.name || '—' }}</td>
                     <td class="actions-cell" @click.stop>
                         <div class="dropdown">
-                            <button class="dropdown-btn" @click="toggleDropdown(password.id)">⋮</button>
+                            <button class="dropdown-btn" @click="toggleDropdown(password.id)">
+                                <span class="dropdown-dots">⋮</span>
+                            </button>
                             <div v-if="openDropdown === password.id" class="dropdown-menu" @click.stop>
                                 <button @click="$emit('edit', password); openDropdown = null" class="dropdown-item">✏️ Edit</button>
                                 <button @click="$emit('delete', password); openDropdown = null" class="dropdown-item danger">🗑️ Delete</button>
@@ -102,7 +104,7 @@ const formatDate = (date) => {
 .password-table-container {
     background: white;
     border-radius: 8px;
-    overflow: hidden;
+    overflow: visible;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
@@ -197,37 +199,53 @@ const formatDate = (date) => {
 
 .actions-cell {
     position: relative;
+    overflow: visible;
 }
 
 .dropdown {
     position: relative;
     display: inline-block;
+    overflow: visible;
 }
 
 .dropdown-btn {
-    background: none;
+    background: transparent;
     border: none;
+    color: #f59e0b;
+    border-radius: 999px;
     cursor: pointer;
-    font-size: 1.25rem;
-    padding: 0.25rem 0.5rem;
-    opacity: 0.6;
-    transition: opacity 0.2s;
+    padding: 0.2rem 0.35rem;
+    opacity: 1;
+    transition: transform 0.2s ease, color 0.2s ease, background 0.2s ease;
 }
 
 .dropdown-btn:hover {
-    opacity: 1;
+    transform: translateY(-1px);
+    background: rgba(245, 158, 11, 0.12);
+    color: #fbbf24;
+}
+
+.dropdown-dots {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.35rem;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.08em;
+    text-shadow: 0 0 8px rgba(245, 158, 11, 0.15);
 }
 
 .dropdown-menu {
     position: absolute;
-    top: 100%;
+    top: calc(100% + 0.25rem);
     right: 0;
     background: white;
     border: 1px solid #ddd;
     border-radius: 4px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    z-index: 1000;
-    min-width: 120px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
+    z-index: 2000;
+    min-width: 140px;
 }
 
 .dropdown-item {

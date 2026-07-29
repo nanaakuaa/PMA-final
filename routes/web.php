@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\DashboardController;
 
+
 // Public entry: send guests to login, authenticated users to dashboard
 Route::get('/', function () {
     return Auth::check()
@@ -14,10 +15,12 @@ Route::get('/', function () {
         : redirect()->route('login');
 })->name('home');
 
-// Auth routes
+// Guest auth routes
 Route::middleware('guest')->group(function () {
     Route::get('/login', [LoginController::class, 'show'])->name('login');
     Route::post('/login', [LoginController::class, 'login']);
+    Route::get('/register', [RegisterController::class, 'show'])->name('register');
+    Route::post('/register', [RegisterController::class, 'register']);
 });
 
 // Authenticated routes

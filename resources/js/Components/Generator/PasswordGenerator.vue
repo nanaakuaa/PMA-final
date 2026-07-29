@@ -171,20 +171,20 @@ generatePassword();
 
 <style scoped>
 .password-generator {
-    background: white;
-    border-radius: 8px;
+    background: rgba(15, 23, 42, 0.94);
+    border-radius: 1.5rem;
     padding: 2rem;
     max-width: 600px;
 }
 
 .password-generator h2 {
     margin-bottom: 1.5rem;
-    color: #2c3e50;
+    color: #f8fafc;
 }
 
 .generated-password {
     display: flex;
-    gap: 0.5rem;
+    gap: 0.75rem;
     margin-bottom: 2rem;
 }
 
@@ -193,23 +193,25 @@ generatePassword();
     padding: 1rem;
     font-family: monospace;
     font-size: 1.125rem;
-    border: 2px solid #3498db;
-    border-radius: 4px;
-    background: #f8f9fa;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.06);
+    color: #f8fafc;
 }
 
 .copy-btn {
     padding: 1rem 1.5rem;
-    background: #3498db;
+    background: linear-gradient(135deg, #60a5fa, #3b82f6);
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 999px;
     cursor: pointer;
-    transition: background 0.2s;
+    transition: background 0.2s, transform 0.2s;
 }
 
 .copy-btn:hover:not(:disabled) {
-    background: #2980b9;
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    transform: translateY(-1px);
 }
 
 .copy-btn:disabled {
@@ -238,6 +240,7 @@ generatePassword();
     align-items: center;
     gap: 0.5rem;
     cursor: pointer;
+    color: #e2e8f0;
 }
 
 .checkbox-label input {
@@ -253,12 +256,12 @@ generatePassword();
     display: block;
     margin-bottom: 0.5rem;
     font-weight: 600;
-    color: #666;
+    color: #94a3b8;
 }
 
 .strength-bar {
     height: 10px;
-    background: #e0e0e0;
+    background: rgba(255,255,255,0.1);
     border-radius: 5px;
     overflow: hidden;
 }
@@ -269,19 +272,19 @@ generatePassword();
 }
 
 .strength-fill.weak {
-    background: #e74c3c;
+    background: #fca5a5;
 }
 
 .strength-fill.medium {
-    background: #f39c12;
+    background: #fbbf24;
 }
 
 .strength-fill.good {
-    background: #3498db;
+    background: #60a5fa;
 }
 
 .strength-fill.strong {
-    background: #27ae60;
+    background: #34d399;
 }
 
 .strength-label {
@@ -289,7 +292,7 @@ generatePassword();
     margin-top: 0.5rem;
     font-size: 0.875rem;
     font-weight: 600;
-    color: #666;
+    color: #94a3b8;
 }
 
 .generator-actions {
